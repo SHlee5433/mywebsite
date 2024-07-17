@@ -8,9 +8,9 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-      - text: hw1.qmd
-      - text: hw2.qmd
+      - about.qmd
+      - hw1.qmd
+      - hw2.qmd
 
 format:
   html:
