@@ -1,6 +1,15 @@
 ---
-title: "testwebsite"
-jupyter: python3
+title: "SH"
+toc: false
+about:
+  id: hero-heading
+  template: jolla
+  image: cat.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com
+
 ---
 
 ## 홈페이지 첫 화면입니다!

@@ -1,6 +1,8 @@
 ---
-title: "hw2"
-jupyter: python3
+title: "LS 빅데이터 스쿨 Homework 2"
+author: "승학"
+date: "2024-07-12"
+categories: [bigdata]
 ---
 
 
@@ -8,7 +10,7 @@ jupyter: python3
 
 ```{python}
 import pandas as pd
-mpg = pd.read_csv("mpg.csv")
+mpg = pd.read_csv("data/mpg.csv")
 mpg
 
 mpg_a = mpg.query('displ <= 4')
@@ -95,6 +97,28 @@ mpg.assign(total = lambda x : x["cty"] + x["hwy"],
             mean = lambda x : x["total"]/2)\
             .sort_values("mean", ascending = False)\
             .head(3)
+
+
+
+```
+
+## 7-1 mpg 데이터의 cty(도시 연비)와 hwy(고속도로 연비) 간에 어떤 관계가 있는지 알아보려고 합니다. x축은 cty, y축은 hwy로 된 산점도를 만들어 보세요.
+
+```{python}
+
+import seaborn as sns
+import pandas as pd
+
+mpg = pd.read_csv("data/mpg.csv")
+mpg
+mpg_df = sns.scatterplot(data = mpg, x = "cty", y = "hwy")
+mpg_df
+
+```
+
+## 7-2 미국의 지역별 인구통계 정보를 담은 midwest.csv를 이용해 전체 인구와 아시아인 인구 간에 어떤 관계가 있는지 알아보려고 합니다. x축은 poptotal(전체 인구), y축은 popasian(아시아인 인구)으로 된 산점도를 만들어 보세요. 전체 인구는 50만 명 이하, 아시아인 인구는 1만 명 이하인 지역만 산점도에 표시되게 설정하세요.
+
+```{python}
 
 
 

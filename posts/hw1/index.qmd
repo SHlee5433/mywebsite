@@ -1,6 +1,8 @@
 ---
-title: "hw1"
-jupyter: python3
+title: "LS 빅데이터 스쿨 Homework 1"
+author: "승학"
+date: "2024-07-12"
+categories: [bigdata]
 ---
 
 ## Q1-1 다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.
@@ -34,7 +36,7 @@ print("판매량의 평균 = ", 판매량평균)
 ## Q 2-1 mpg 데이터를 불러와 복사본을 만드세요.
 
 ```{python}
-mpg = pd.read_csv("mpg.csv")
+mpg = pd.read_csv("data/mpg.csv")
 mpg
 
 ```
@@ -66,7 +68,7 @@ mpg.head()
 
 ```{python}
 
-mid = pd.read_csv("midwest.csv")
+mid = pd.read_csv("data/midwest.csv")
 mid
 mid.head
 mid.tail
