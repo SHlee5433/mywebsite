@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="승학">
-<meta name="dcterms.date" content="2024-07-12">
+<meta name="dcterms.date" content="2024-07-25">
 
 <title>LS 빅데이터 스쿨 Homework 4 – DS 승학</title>
 <style>
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 12, 2024</p>
+        <p class="date">July 25, 2024</p>
       </div>
     </div>
     
@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="q1.-정규분포의-확률밀도함수pdf-값을-계산하는-자신만의-파이썬-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그리시오.-단-scipy-norm-함수는-사용하지-말-것" class="level2">
 <h2 class="anchored" data-anchor-id="q1.-정규분포의-확률밀도함수pdf-값을-계산하는-자신만의-파이썬-함수를-정의하고-정규분포-mu-3-sigma-2의-pdf를-그리시오.-단-scipy-norm-함수는-사용하지-말-것">Q1. 정규분포의 확률밀도함수(pdf) 값을 계산하는 자신만의 파이썬 함수를 정의하고, 정규분포 mu = 3 / sigma = 2의 pdf를 그리시오. (단, scipy norm 함수는 사용하지 말 것)</h2>
-<div id="42ead4f6" class="cell" data-execution_count="1">
+<div id="7f4e08a6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -236,33 +236,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="q2.-파이썬-scipy-패키지를-사용해서-다음과-같은-확률을-구하시오.-x-n232">Q2. 파이썬 scipy 패키지를 사용해서 다음과 같은 확률을 구하시오. (X ~ N(2,3^2))</h2>
 <section id="p-x-3" class="level3">
 <h3 class="anchored" data-anchor-id="p-x-3">2-1 P( X &lt; 3)</h3>
-<div id="eab43667" class="cell" data-execution_count="2">
+<div id="e72bd4dc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>np.float64(0.6305586598182363)</code></pre>
 </div>
 </div>
 </section>
 <section id="p2-x-5" class="level3">
 <h3 class="anchored" data-anchor-id="p2-x-5">2-2 P(2 &lt; X &lt; 5)</h3>
-<div id="a1ffa1cd" class="cell" data-execution_count="3">
+<div id="a0477934" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">-</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>np.float64(0.3413447460685429)</code></pre>
 </div>
 </div>
 </section>
 <section id="px-3-or-x-7" class="level3">
 <h3 class="anchored" data-anchor-id="px-3-or-x-7">2-3 P(X &lt; 3 or X &gt; 7)</h3>
-<div id="ebb06a3f" class="cell" data-execution_count="4">
+<div id="e61b8aeb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span><span class="dv">1</span> <span class="op">-</span> norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>np.float64(0.678349012091051)</code></pre>
 </div>
 </div>
