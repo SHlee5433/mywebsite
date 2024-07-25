@@ -1,0 +1,12 @@
+{
+  "hash": "86146e5fb9dc384e7a83626d7441352b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"LS 빅데이터 스쿨 Homework 4\"\nauthor: \"승학\"\ndate: \"2024-07-12\"\ncategories: [bigdata]\n---\n\n\n## Q1. 정규분포의 확률밀도함수(pdf) 값을 계산하는 자신만의 파이썬 함수를 정의하고, 정규분포 mu = 3 / sigma = 2의 pdf를 그리시오. (단, scipy norm 함수는 사용하지 말 것)\n\n::: {#42ead4f6 .cell execution_count=1}\n``` {.python .cell-code}\nimport math\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef fx (x, m, a) :\n    return (1/(a * np.sqrt(2 * math.pi))) * math.exp((-1/2) * ((x -         m)/a)**2)\n\n\nk = np.linspace(-4, 10, 100)\nmt = []\nfor i in k :\n    mt.append(fx(i, 3, 2))\n    \n\nplt.plot(k, mt)\nplt.show()\nplt.clf()\n\n```\n\n::: {.cell-output .cell-output-display}\n![](hw4_files/figure-html/cell-2-output-1.png){width=587 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n## Q2. 파이썬 scipy 패키지를 사용해서 다음과 같은 확률을 구하시오. (X ~ N(2,3^2))\n\n### 2-1 P( X < 3)\n\n::: {#eab43667 .cell execution_count=2}\n``` {.python .cell-code}\nfrom scipy.stats import norm\n\nnorm.cdf(3, 2, 3)\n\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\nnp.float64(0.6305586598182363)\n```\n:::\n:::\n\n\n### 2-2 P(2 < X < 5)\n\n::: {#a1ffa1cd .cell execution_count=3}\n``` {.python .cell-code}\na = norm.cdf(5, 2, 3)\nb = norm.cdf(2, 2, 3)\na - b\n```\n\n::: {.cell-output .cell-output-display execution_count=3}\n```\nnp.float64(0.3413447460685429)\n```\n:::\n:::\n\n\n### 2-3 P(X < 3 or X > 7)\n\n::: {#ebb06a3f .cell execution_count=4}\n``` {.python .cell-code}\na = norm.cdf(3, 2, 3)\nb =1 - norm.cdf(7, 2, 3)\na + b\n```\n\n::: {.cell-output .cell-output-display execution_count=4}\n```\nnp.float64(0.678349012091051)\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "hw4_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
