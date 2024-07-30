@@ -1,0 +1,125 @@
+---
+title: "LS 빅데이터 스쿨 Homework 6"
+author: "승학"
+date: "2024-07-30"
+categories: [bigdata]
+
+---
+
+## 챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기
+
+norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정
+
+위 아래 수직 막대기로 표시
+
+#### 패키지 불러오기
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+```
+
+
+#### 데이터 불러오고 복사본 만들기
+
+```{python}
+
+# !pip install pyreadstat
+raw_welfare = pd.read_spss("C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/Koweps_hpwc14_2019_beta2.sav")
+raw_welfare
+
+welfare = raw_welfare.copy()
+welfare.head()
+
+
+```
+
+#### 변수명 변경하기
+
+```{python}
+
+welfare = welfare.rename(
+    columns = {
+        "h14_g3" : "sex",
+        "h14_g4" : "birth",
+        "h14_g10" : "marriage_type",
+        "h14_g11" : "religion",
+        "p1402_8aq1" : "income",
+        "h14_eco9" : "code_job",
+        "h14_reg7" : "code_region"
+    }
+)
+
+welfare = welfare[["sex", "birth", "marriage_type",
+                "religion", "income", "code_job", "code_region"]]
+welfare
+
+# sex 칼럼 항목 male, female로 변경
+welfare["sex"] = np.where(welfare["sex"] == 1, "male", "female")
+welfare['sex'].value_counts()
+
+
+```
+
+#### 성별에 따른 평균 수입
+
+```{python}
+
+sex_income = welfare.dropna(subset = "income") \
+                    .groupby("sex", as_index = False) \
+                    .agg(mean_income = ("income", "mean"))
+sex_income
+
+```
+
+#### 그래프로 나타내기
+
+```{python}
+
+sns.barplot(data = sex_income, x = "sex", y = "mean_income",
+            hue = "sex")
+plt.show()
+
+```
+
+#### 신뢰구간을 설정하는데 필요한 모수 칼럼으로 추가하기
+
+```{python}
+
+sex_income = welfare.dropna(subset="income") \
+                    .groupby("sex", as_index = False) \
+                    .agg(mean_income = ("income","mean"),
+                    std_income = ("income","std"),
+                    n = ("sex","count"))
+sex_income
+
+```
+
+#### 성별에 따른 95% 신뢰구간 구하기
+
+```{python}
+
+u_ci = norm.ppf(0.975, sex_income["mean_income"],
+            sex_income["std_income"] / np.sqrt(sex_income["n"]))
+            
+d_ci = norm.ppf(0.025, sex_income["mean_income"],
+            sex_income["std_income"] / np.sqrt(sex_income["n"]))
+u_ci
+d_ci
+
+```
+
+#### 신뢰구간 시각화 하기
+
+```{python}
+
+plt.plot([0,0], [u_ci[0],d_ci[0]], color = "red", linewidth = 3)
+plt.plot([1,1], [u_ci[1],d_ci[1]], color = "red", linewidth = 3)
+plt.show()
+plt.clf()
+
+```
+
