@@ -107,8 +107,8 @@ u_ci = norm.ppf(0.975, sex_income["mean_income"],
             
 d_ci = norm.ppf(0.025, sex_income["mean_income"],
             sex_income["std_income"] / np.sqrt(sex_income["n"]))
-u_ci
-d_ci
+        
+pd.DataFrame([u_ci, d_ci])
 
 ```
 
@@ -116,10 +116,11 @@ d_ci
 
 ```{python}
 
+sns.barplot(data = sex_income, x = "sex", y = "mean_income",
+            hue = "sex")
 plt.plot([0,0], [u_ci[0],d_ci[0]], color = "red", linewidth = 3)
 plt.plot([1,1], [u_ci[1],d_ci[1]], color = "red", linewidth = 3)
 plt.show()
-plt.clf()
 
 ```
 
