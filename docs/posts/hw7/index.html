@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>슬통 자동자는 매해 출시되는 신형 자동차의 에너지 소비효율 등급을 1등급으로 유지하고 있다. 22년 개발된 신형 모델이 한국 자동차 평가원에서 설정한 에너지 소비 효율등급 1등급을 받을 수 있을지 검정하려한다. 평가원에 따르면 1등급의 기준은 평균 복합 에너지 소비효율이 16.0 이상인 경우 부여한다고 한다. 다음은 신형 자동차 15대의 복합 에너지소비효율 측정한 결과이다. 15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927, 15.382, 16.709, 16.804 표본에 의하여 판단해볼때, 현대자동차의 신형 모델은 에너지 효율 1등급으로 판단할 수 있을지 판단해보시오. (유의수준 1%로 설정)</p>
 <section id="패키지-불러오기" class="level3">
 <h3 class="anchored" data-anchor-id="패키지-불러오기">패키지 불러오기</h3>
-<div id="30913f08" class="cell" data-execution_count="1">
+<div id="9ce56934" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="q3.-검정통계량을-계산하시오." class="level2">
 <h2 class="anchored" data-anchor-id="q3.-검정통계량을-계산하시오.">Q3. 검정통계량을 계산하시오.</h2>
-<div id="c55ebb99" class="cell" data-execution_count="2">
+<div id="17b1b90d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">15.078</span>, <span class="fl">15.752</span>, <span class="fl">15.549</span>, <span class="fl">15.56</span>, <span class="fl">16.098</span>, <span class="fl">13.277</span>, <span class="fl">15.462</span>, <span class="fl">16.116</span>, <span class="fl">15.214</span>, <span class="fl">16.93</span>, <span class="fl">14.118</span>, <span class="fl">14.927</span>, <span class="fl">15.382</span>, <span class="fl">16.709</span>, <span class="fl">16.804</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>𝜇<span class="dv">0</span> <span class="op">=</span> <span class="dv">16</span></span>
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="q4.-p-value을-구하세요." class="level2">
 <h2 class="anchored" data-anchor-id="q4.-p-value을-구하세요.">Q4. p-value을 구하세요.</h2>
-<div id="c560f113" class="cell" data-execution_count="3">
+<div id="8f214e79" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> t.cdf(t_value, df <span class="op">=</span> <span class="dv">14</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="q6.-현대자동차의-신형-모델의-평균-복합-에너지-소비효율에-대하여-95-신뢰구간을-구해보세요." class="level2">
 <h2 class="anchored" data-anchor-id="q6.-현대자동차의-신형-모델의-평균-복합-에너지-소비효율에-대하여-95-신뢰구간을-구해보세요.">Q6. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.</h2>
-<div id="90342db4" class="cell" data-execution_count="4">
+<div id="bcf7bd3f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1번 방법</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ci_u <span class="op">=</span> x_bar <span class="op">+</span> t.ppf(<span class="fl">0.975</span>, df <span class="op">=</span> <span class="dv">14</span>) <span class="op">*</span> (s<span class="op">/</span>np.sqrt(<span class="dv">15</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ci_d <span class="op">=</span> x_bar <span class="op">-</span> t.ppf(<span class="fl">0.975</span>, df <span class="op">=</span> <span class="dv">14</span>) <span class="op">*</span> (s<span class="op">/</span>np.sqrt(<span class="dv">15</span>))</span>
@@ -259,6 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>(np.float64(14.988864240339733), np.float64(16.074602426326933))</code></pre>
 </div>
 </div>
+<p>p_value &gt; 0.01(유의수준), 따라서 귀무가설은 참으로 판단된다.</p>
 
 
 </section>

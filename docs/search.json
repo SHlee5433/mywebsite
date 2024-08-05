@@ -571,6 +571,6 @@
     "href": "posts/hw7/index.html#q6.-현대자동차의-신형-모델의-평균-복합-에너지-소비효율에-대하여-95-신뢰구간을-구해보세요.",
     "title": "LS 빅데이터 스쿨 Homework 7",
     "section": "Q6. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.",
-    "text": "Q6. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.\n\n# 1번 방법\nci_u = x_bar + t.ppf(0.975, df = 14) * (s/np.sqrt(15))\nci_d = x_bar - t.ppf(0.975, df = 14) * (s/np.sqrt(15))\n\nci_u\nci_d\n\n# 2번 방법법\nci = t.interval(0.95, loc=x_bar, scale= (s/np.sqrt(15)), df=14)\nci\n\n(np.float64(14.988864240339733), np.float64(16.074602426326933))"
+    "text": "Q6. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.\n\n# 1번 방법\nci_u = x_bar + t.ppf(0.975, df = 14) * (s/np.sqrt(15))\nci_d = x_bar - t.ppf(0.975, df = 14) * (s/np.sqrt(15))\n\nci_u\nci_d\n\n# 2번 방법법\nci = t.interval(0.95, loc=x_bar, scale= (s/np.sqrt(15)), df=14)\nci\n\n(np.float64(14.988864240339733), np.float64(16.074602426326933))\n\n\np_value &gt; 0.01(유의수준), 따라서 귀무가설은 참으로 판단된다."
   }
 ]
