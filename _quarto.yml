@@ -6,12 +6,13 @@ website:
   title: "DS 승학"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: blog.qmd
-        text: Blog
+      - text: Home
+        href: index.qmd
+      - text: About
+        href: about.qmd
+      - text: Blog 
+        href: posts/blog.qmd
+        
       
 
 format:
