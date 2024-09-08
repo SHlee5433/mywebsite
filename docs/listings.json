@@ -26,5 +26,11 @@
       "/posts/hw2/index.html",
       "/posts/hw1/index.html"
     ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/projects/project1/index.html"
+    ]
   }
 ]
