@@ -3,13 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "DS 승학"
+  title: "승학"
   navbar:
     left:
       - text: Home
         href: index.qmd
-      - text: About
-        href: about.qmd
+      - text: Project
+        href: projcet.qmd
       - text: Blog 
         href: blog.qmd
         
